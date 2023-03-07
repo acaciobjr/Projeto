@@ -23,12 +23,12 @@ conn = psycopg2.connect(
     #return jsonify([{ "id": r[0], "nome": r[1] } for r in recursos])
 
 @app.route("/recursos", methods=["POST"])
-def create_user(name, age, email, password):   
+def create_user(self, name, age, email, password):   
     return jsonify({"name": name, "age": age, "email": email, "password": password})
 
 
 @app.route("/recursos/<int:id>", methods=["GET"])
-def read_user(users):    
+def read_user(self, name):    
     if row in recurso:
         return jsonify("Name: %s, Age: %s, Email: %s" % (row[0], row[1], row[2]))
     elif recurso is None:
@@ -36,11 +36,11 @@ def read_user(users):
 
 
 @app.route("/recursos/<int:id>", methods=["PUT"])
-def update_user(name, age, email, password):    
+def update_user(self, name, age, email, password):   
     return jsonify({ "new name": name, "new age": age, "new email": email, "new password": password })
 
 @app.route("/recursos/<int:id>", methods=["DELETE"])
-def delete_user(users):
+def delete_user(self, name):
     return "deleted feature", 200
 
 if __name__ == '__main__':
